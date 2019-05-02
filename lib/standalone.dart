@@ -15,6 +15,7 @@
 library timezone.standalone;
 
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
 import 'package:path/path.dart' as p;
@@ -80,4 +81,13 @@ Future initializeTimeZone([String path]) {
   }).catchError((e) {
     throw TimeZoneInitException(e.toString());
   });
+}
+
+void initializeTzDatabaseFromBase64(String encodedDatabase) {
+  try {
+    var rawData = base64Decode(encodedDatabase);
+    initializeDatabase(rawData);
+  } catch (e) {
+    throw TimeZoneInitException(e.toString());
+  }
 }
