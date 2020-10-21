@@ -1,3 +1,7 @@
+# 0.5.9
+
+- Time zone database updated to 2020d.
+
 # 0.5.8
 
 - Time zone database updated to 2020b. For your convenience here is the
