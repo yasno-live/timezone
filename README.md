@@ -3,7 +3,7 @@
 This package provides the [IANA time zone database] and time zone aware
 `DateTime` class, [`TZDateTime`].
 
-The current time zone database version is [2021a]. See [the announcement] for
+The current time zone database version is [2023c]. See [the announcement] for
 details.
 
 You can update to the current IANA time zone database by running
@@ -129,11 +129,13 @@ import specific members via a `show` clause.
 >
 > [The tz database](https://www.iana.org/time-zones)
 
-#### Get location by Olsen time zone ID
+#### Get location by tz database/Olson name
 
 ```dart
 final detroit = tz.getLocation('America/Detroit');
 ```
+
+See [Wikipedia list] for more database entry names.
 
 We don't provide any functions to get locations by time zone abbreviations
 because of the ambiguities.
@@ -219,8 +221,13 @@ $ chmod +x tool/refresh.sh
 $ tool/refresh.sh
 ```
 
-[2021a]: http://www.iana.org/time-zones/repository/releases/tzcode2021a.tar.gz
+Note, on Windows, you may need to follow [these
+steps](https://github.com/srawlins/timezone/issues/60#issuecomment-638411716)
+which use WSL.
+
+[2023c]: https://data.iana.org/time-zones/releases/tzcode2023c.tar.gz
 [IANA time zone database]: https://www.iana.org/time-zones
+[Wikipedia list]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 [`TZDateTime`]: https://pub.dartlang.org/documentation/timezone/latest/timezone.standalone/TZDateTime-class.html
 [`TimeZone`]: https://pub.dartlang.org/documentation/timezone/latest/timezone.standalone/TimeZone-class.html
-[the announcement]: https://mm.icann.org/pipermail/tz-announce/2021-January/000065.html
+[the announcement]: http://mm.icann.org/pipermail/tz-announce/2023-March/000079.html
